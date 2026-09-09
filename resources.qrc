@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/starterm.png</file>
+    </qresource>
+</RCC>
+

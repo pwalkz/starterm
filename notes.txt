@@ -1,0 +1,16 @@
+Rebuild
+
+make clean
+/usr/lib/qt6/bin/qmake
+make
+./starterm
+
+
+# System copy (will be used by the app)
+sudo cp ~/.config/qterminal.org/color-schemes/Borland.colorscheme /usr/share/qtermwidget6/color-schemes/
+
+# Keep your local copy as backup
+cp ~/.config/qterminal.org/color-schemes/Borland.colorscheme ~/.config/qterminal.org/color-schemes/Borland.colorscheme.bak
+
+
+

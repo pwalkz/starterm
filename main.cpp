@@ -334,7 +334,7 @@ private:
         }
 
         // Theme menu - apply to all tabs
-        QMenu *themeAllMenu = menuBar->addMenu("Themes &All Tabs");
+        QMenu *themeAllMenu = menuBar->addMenu("&All Tabs");
         for (const QString &theme : themes) {
             QAction *themeAction = new QAction(theme, this);
             themeAction->setCheckable(true);
@@ -349,7 +349,7 @@ private:
         // Help menu
         QMenu *helpMenu = menuBar->addMenu("&Help");
 
-        QAction *aboutAction = new QAction("&About", this);
+        QAction *aboutAction = new QAction("About", this);
         aboutAction->setShortcut(QKeySequence::HelpContents);
         connect(aboutAction, &QAction::triggered, this, &TerminalWindow::showAbout);
         helpMenu->addAction(aboutAction);

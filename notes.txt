@@ -1,5 +1,7 @@
 Rebuild
 
+      cd /home/archie/Dev/starterm
+
 make clean
 /usr/lib/qt6/bin/qmake
 make
@@ -16,5 +18,14 @@ sudo cp ~/.config/qterminal.org/color-schemes/Borland.colorscheme /usr/share/qte
 # Keep your local copy as backup
 cp ~/.config/qterminal.org/color-schemes/Borland.colorscheme ~/.config/qterminal.org/color-schemes/Borland.colorscheme.bak
 
+sudo cp /home/archie/Dev/starterm/Borland.colorscheme /usr/share/qtermwidget6/color-schemes/
+
+XFCE4-terminal colorschemes
+/usr/share/xfce4/terminal/colorschemes/borland.scheme
+
+starterm color files
+/usr/share/qtermwidget6/color-schemes/
+
+sudo cp Borland.colorscheme /usr/share/qtermwidget6/color-schemes/
 
 

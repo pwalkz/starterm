@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Star Term
+Comment=Qt Terminal Editor
+Exec=/home/archie/Dev/starterm/starterm
+Icon=/home/archie/Dev/starterm/icons/starterm.png
+Path=/home/archie
+Terminal=false
+StartupNotify=false

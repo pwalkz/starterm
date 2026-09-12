@@ -14,3 +14,4 @@ Dependency install and checks:
 
 Color Schemes check and optional add:
 - sudo cp Borland.colorscheme /usr/share/qtermwidget6/color-schemes
+

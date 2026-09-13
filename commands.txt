@@ -1,0 +1,153 @@
+# Starterm commands file
+# ======================
+# Format:
+#   command                        -> shown as-is
+#   command :: description         -> description shown in the dropdown
+#
+# Notes:
+#   - Lines starting with '#' are ignored.
+#   - Blank lines are ignored.
+#   - Use "::" as the separator so shell pipes (|) inside the command
+#     are preserved (e.g. "ps aux | head -20").
+#   - Commands with destructive potential are filtered by the app.
+
+clear
+echo $SHELL
+ls
+ls -l
+ls -laXh
+lsblk
+
+
+- #### -- Calendar & time -- #####
+cal -3                                    :: Show a 3-month calendar
+cal -j                                    :: Show calendar with Julian day numbers
+cal                                       :: Show this month's calendar
+date                                      :: Show current date and time
+date -u +'%Y-%m-%d %H:%M:%S %Z'           :: UTC date/time in ISO-ish format
+date +'%Y-%m-%d %H:%M:%S %Z'              :: Local date/time in ISO-ish format
+date -u +'%Y-%m-%d %H:%M:%S %z'           :: UTC date/time with numeric offset
+date +'%Y-%m-%d %H:%M:%S %z'              :: Local date/time with numeric offset
+echo = ; cal -3 ; echo = ; date           :: Combined calendar + date banner
+
+- #### -- Weather -- #####
+ansiweather -a false                      :: Weather (auto-location, no ANSI)
+ansiweather -l "Perth,AU" -a false        :: Weather for Perth, AU
+ansiweather -l "Wollongong,AU" -a false   :: Weather for Wollongong, AU
+
+- #### -- Fun -- #####
+banner -c# Hi $USER                       :: Print "Hi <user>" as a banner
+fortune -s                                :: Short fortune
+fortune -l                                :: Long fortune
+neofetch --stdout                         :: System info as plain text
+
+- #### -- System information ---
+cat /etc/os-release                       :: Show OS information
+free -h                                   :: Show memory usage (human-readable)
+free -m                                   :: Show memory usage (MiB)
+gcc -dumpversion                          :: Print GCC version number
+gcc --version                             :: Print GCC version details
+hostname                                  :: Show hostname
+hostnamectl                               :: Show hostname and system details
+inxi -c 0 -G -A -P                        :: System info (graphics, audio, partitions)
+lazbuild --version                        :: Show Lazarus build tool version
+lscpu                                     :: Show CPU information
+lscpu | grep Vendor                       :: Show CPU vendor only
+lspci                                     :: List PCI devices
+lsblk | grep disk                         :: List physical disks
+lsblk | grep part                         :: List partitions
+systemd-analyze                           :: Show boot time breakdown
+uname -a                                  :: Show kernel and system info
+uptime                                    :: Show uptime and load average
+hostnamectl                               :: Show hostname and system details
+vim ~/.bashrc                             :: Open bash resource config (:q to quit)
+
+- #### -- Users & accounts ---
+cut -d: -f1 /etc/passwd                   :: List all usernames
+id                                        :: Show user and group IDs
+printenv                                  :: Print environment variables
+who -H                                    :: Show logged-in users with headers
+whoami                                    :: Show current user
+echo $HOME                                :: Print home directory
+
+- #### -- Files & directories ---
+cd ..                                     :: Go up one directory
+cd ~                                      :: Go to home directory
+ls                                        :: List files (short form)
+ls -C                                     :: List files in columns
+ls -l                                     :: List files in long form
+ls -la                                    :: List all files in long form
+ls -lhXF                                  :: Long list, human sizes, dirs first, sort
+ls -laXh                                  :: Long list all, dirs first, human sizes
+ls -d */                                  :: List subdirectories only
+ls -dl */                                 :: List subdirectories with details
+ls -R                                     :: List directories recursively
+ls --recursive -la                        :: List all files recursively (long)
+find . -name '*.txt' -print               :: Find .txt files under current dir
+find . -type f -name "*.pas" -exec grep -i "eoShowFormatting" {} +   :: Search .pas files
+grep -r TODO .                            :: Search for "TODO" in current tree
+head -n 20 /etc/passwd                    :: Show first 20 lines of passwd
+less ~/Dev/starterm/commands.txt          :: Pager view of commands.txt
+tree -d                                   :: Show directory tree (dirs only)
+tree -L 2                                 :: Show a 2-level directory tree
+
+- #### -- Disk & storage ---
+df -h                                     :: Show disk usage (human-readable)
+df -h | grep sd                           :: Show disk usage for /dev/sd* only
+df -h | grep sd | sort -V                 :: Same, sorted version-naturally
+du -sh *                                  :: Show size of each item in current dir
+lsblk | grep disk                         :: List physical disks
+
+- #### -- Networking ---
+ip a                                      :: Show network interfaces
+ip a | grep 'inet 1'                      :: Show IPv4 addresses only
+ip route get 1.1.1.1 | grep -oP 'src \K\S+'   :: Show source IP for route to 1.1.1.1
+nmcli dev wifi                            :: List visible Wi-Fi networks
+ping -c 3 192.168.8.148                   :: Ping a LAN address 3 times
+ping -c 3 archlinux.org                   :: Ping archlinux.org 3 times
+ping -c 4 1.1.1.1                         :: Ping Cloudflare DNS 4 times
+ss -tuln                                  :: Show listening TCP/UDP ports
+
+- #### -- Processes & system ---
+ps aux | head -n 10                       :: Show first 10 processes
+ps aux | head -20                         :: Show first 20 processes
+top                                       :: Live process viewer (press q to quit)
+
+- #### -- Shell & history ---
+clear                                     :: Clear the terminal
+history                                   :: Show recent shell history
+printenv                                  :: Print environment variables
+
+- #### -- Manuals & help ---
+info hostname                             :: Info page for hostname
+info ls                                   :: Info page for ls
+info nano                                 :: Info page for nano
+man ls                                    :: Manual page for ls
+tldr ls                                   :: Practical examples for ls
+whatis cfdisk                             :: One-line description of cfdisk
+whatis fdisk                              :: One-line description of fdisk
+whereis ls                                :: Locate ls binary, source, and man page
+whereis neofetch                          :: Locate neofetch binary, source, man page
+which bash                                :: Locate the bash binary
+which neofetch                            :: Locate the neofetch binary
+
+- #### -- Calculators & conversions ---
+calc 10*0.3048                            :: Convert 10 feet to metres
+calc '23 * 47'                            :: Multiply 23 by 47
+calc -d 2/3                               :: Decimal result of 2/3
+calc -d "read qtime; qtime(2)"            :: Query calc with an expression
+calc help sin                             :: Calc help on the sin function
+
+- #### -- Package tools (info only) ---
+yay -P --stats                            :: Show yay statistics
+yay -Pww                                  :: Show yay configuration (formatted)
+yay -Pwwq                                 :: Show yay configuration (compact)
+yay -Si lazarus                           :: Show repo info for lazarus
+yay -Ss lazarus                           :: Search for lazarus in repos
+
+- #### -- Miscellaneous ---
+tgpt -q --provider deepseek "Code in Free Pascal Hello World"   :: Query tgpt quietly
+nohup geany &                             :: Launch geany detached (background)
+python script.py                          :: Run script.py with Python
+cat /etc/fpc.cfg | grep gcc               :: Find gcc references in FPC config
+fpc -iDVSOSP                              :: Show FPC supported targets

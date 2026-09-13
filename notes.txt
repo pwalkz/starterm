@@ -28,4 +28,7 @@ starterm color files
 
 sudo cp Borland.colorscheme /usr/share/qtermwidget6/color-schemes/
 
+        showCommandPanelAction = new QAction("Show Run Command Panel", this);
+        showCommandPanelAction->setShortcut(QKeySequence(Qt::CTRL | Qt::Key_R));
+
 

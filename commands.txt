@@ -11,6 +11,8 @@
 #     are preserved (e.g. "ps aux | head -20").
 #   - Commands with destructive potential are filtered by the app.
 
+
+sudo pacman -Syu
 clear
 echo $SHELL
 ls
@@ -111,6 +113,7 @@ ss -tuln                                  :: Show listening TCP/UDP ports
 - #### -- Processes & system ---
 ps aux | head -n 10                       :: Show first 10 processes
 ps aux | head -20                         :: Show first 20 processes
+sudo pacman -Syu                          :: Update/Upgrade System
 top                                       :: Live process viewer (press q to quit)
 
 - #### -- Shell & history ---

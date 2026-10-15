@@ -2,9 +2,9 @@
 Version=1.0
 Type=Application
 Name=Star Term
-Comment=Qt Terminal Editor
+Comment=My C++ Terminal
 Exec=/home/archie/Dev/starterm/starterm
-Icon=/home/archie/Dev/starterm/icons/starterm.png
+Icon=/home/archie/Dev/starterm/starterm.ico
 Path=/home/archie
 Terminal=false
 StartupNotify=false

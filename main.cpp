@@ -1066,12 +1066,14 @@ private:
         QMenu *fileMenu = menuBar->addMenu("&File");
 
         QAction *newTabAction = new QAction("&New Tab", this);
-        newTabAction->setShortcut(QKeySequence::AddTab);
+       // newTabAction->setShortcut(QKeySequence::AddTab);
+        newTabAction->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_T));
         connect(newTabAction, &QAction::triggered, this, &TerminalWindow::addNewTab);
         fileMenu->addAction(newTabAction);
 
         QAction *closeTabAction = new QAction("&Close Tab", this);
-        closeTabAction->setShortcut(QKeySequence::Close);
+       // closeTabAction->setShortcut(QKeySequence::Close);
+        closeTabAction->setShortcut(QKeySequence(Qt::CTRL | Qt::SHIFT | Qt::Key_W));
         connect(closeTabAction, &QAction::triggered, this, &TerminalWindow::closeCurrentTab);
         fileMenu->addAction(closeTabAction);
 

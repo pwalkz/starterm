@@ -487,7 +487,7 @@ private slots:
     {
         QMessageBox::about(this, "About Starterm",
             "<h2>Starterm - Terminal Emulator</h2>"
-            "<p>Version 1.0.0</p>"
+            "<p>Version 1.0.1</p>"
             "<p>A lightweight terminal emulator built with Qt and QTermWidget.</p>"
             "<p>Features:</p>"
             "<ul>"
@@ -660,14 +660,14 @@ private:
             return;
         }
 
-        if (!isCommandSafe(cmd)) {
+       /* if (!isCommandSafe(cmd)) {
             QMessageBox::warning(this, "Command Blocked",
                 QString("For safety, this %1 will not be run from the panel:\n\n%2\n\n"
                         "You can still type it manually in the terminal if you wish.")
                     .arg(what, cmd));
             statusBar()->showMessage("Blocked for safety", 3000);
             return;
-        }
+        }   */
 
         QTermWidget *terminal = getCurrentTerminal();
         if (!terminal) {
